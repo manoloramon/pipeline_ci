@@ -1,17 +1,17 @@
 defmodule PipelineCiWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
-  
+
   At the first glance, this module may seem daunting, but its goal is
   to provide some core building blocks in your application, such modals,
   tables, and forms. The components are mostly markup and well documented
   with doc strings and declarative assigns. You may customize and style
   them in any way you want, based on your application growth and needs.
-  
+
   The default components use Tailwind CSS, a utility-first CSS framework.
   See the [Tailwind CSS documentation](https://tailwindcss.com) to learn
   how to customize them or feel free to swap in another framework altogether.
-  
+
   Icons are provided by [heroicons](https://heroicons.com). See `icon/1` for usage.
   """
   use Phoenix.Component
@@ -21,20 +21,20 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders a modal.
-  
+
   ## Examples
-  
+
       <.modal id="confirm-modal">
         This is a modal.
       </.modal>
-  
+
   JS commands may be passed to the `:on_cancel` to configure
   the closing/cancel event, for example:
-  
+
       <.modal id="confirm" on_cancel={JS.navigate(~p"/posts")}>
         This is another modal.
       </.modal>
-  
+
   """
   attr :id, :string, required: true
   attr :show, :boolean, default: false
@@ -92,9 +92,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders flash notices.
-  
+
   ## Examples
-  
+
       <.flash kind={:info} flash={@flash} />
       <.flash kind={:info} phx-mounted={show("#flash")}>Welcome Back!</.flash>
   """
@@ -136,9 +136,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Shows the flash group with standard titles and content.
-  
+
   ## Examples
-  
+
       <.flash_group flash={@flash} />
   """
   attr :flash, :map, required: true, doc: "the map of flash messages"
@@ -162,9 +162,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders a simple form.
-  
+
   ## Examples
-  
+
       <.simple_form for={@form} phx-change="validate" phx-submit="save">
         <.input field={@form[:email]} label="Email"/>
         <.input field={@form[:username]} label="Username" />
@@ -198,9 +198,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders a button.
-  
+
   ## Examples
-  
+
       <.button>Send!</.button>
       <.button phx-click="go" class="ml-2">Send!</.button>
   """
@@ -228,13 +228,13 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders an input with label and error messages.
-  
+
   A `%Phoenix.HTML.Form{}` and field name may be passed to the input
   to build input names and error messages, or all the attributes and
   errors may be passed explicitly.
-  
+
   ## Examples
-  
+
       <.input field={@form[:email]} type="email" />
       <.input name="my-input" errors={["oh no!"]} />
   """
@@ -419,9 +419,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc ~S"""
   Renders a table with generic styling.
-  
+
   ## Examples
-  
+
       <.table id="users" rows={@users}>
         <:col :let={user} label="id"><%= user.id %></:col>
         <:col :let={user} label="username"><%= user.username %></:col>
@@ -498,9 +498,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders a data list.
-  
+
   ## Examples
-  
+
       <.list>
         <:item title="Title"><%= @post.title %></:item>
         <:item title="Views"><%= @post.views %></:item>
@@ -526,9 +526,9 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders a back navigation link.
-  
+
   ## Examples
-  
+
       <.back navigate={~p"/posts"}>Back to posts</.back>
   """
   attr :navigate, :any, required: true
@@ -549,19 +549,19 @@ defmodule PipelineCiWeb.CoreComponents do
 
   @doc """
   Renders a [Hero Icon](https://heroicons.com).
-  
+
   Hero icons come in three styles – outline, solid, and mini.
   By default, the outline style is used, but solid an mini may
   be applied by using the `-solid` and `-mini` suffix.
-  
+
   You can customize the size and colors of the icons by setting
   width, height, and background color classes.
-  
+
   Icons are extracted from your `assets/vendor/heroicons` directory and bundled
   within your compiled app.css by the plugin in your `assets/tailwind.config.js`.
-  
+
   ## Examples
-  
+
       <.icon name="hero-x-mark-solid" />
       <.icon name="hero-arrow-path" class="ml-1 w-3 h-3 animate-spin" />
   """
